@@ -15,18 +15,21 @@ export const Header = () => {
     const context = useContext(GlobalContext)
     const {removeFromPokedex,pokedex,addToPokedex,pokemons}=context
     const {id} = useParams()
-    const [inPokedex,setInPokedex]=useState(false)
+    const [inPokedex,setInPokedex]=useState()
     const [pokemonDetail,setPokemonDetail] = useState([])
    
     const searchPokedex = ()=>{ pokedex.map((ele)=>{
         if(ele.id==id){
-            setInPokedex(true)
-        }
-    })}
+              setInPokedex(true)
+            }else{
+              setInPokedex(false)
+            }
+      })
+    } 
 
     useEffect(()=> {
         searchPokedex()
-      },[pokedex])
+    },[pokedex]) 
 
     const getDetails = () => {
         axios
@@ -48,17 +51,18 @@ return(
                     <Image src={logo} alt="Imagem logo"/>
                     <Button onClick={()=>goToPokedex(navigate)}>Pokédex</Button>
                 </HeaderContainer>
-                :location.pathname==="/pokedex"?
+                :location.pathname === "/pokedex"?
                 <HeaderContainer>
                     <LinkHome onClick={()=>goToHome(navigate)}>Todos Pokemons</LinkHome>
                     <Image src={logo} alt="Imagem logo"/>
                 </HeaderContainer>
-                :
+                : 
                 <HeaderContainer>
                     <LinkHome onClick={()=>goToHome(navigate)}>Todos Pokemons</LinkHome>
                     <Image src={logo} alt="Imagem logo"/>
                     {inPokedex?<ButtonDetail onClick={()=>removeFromPokedex(id)}>Excluir da Pokedex</ButtonDetail>
-                    :<ButtonDetail onClick={()=>addToPokedex(pokemonDetail)}>Capturar</ButtonDetail>}
+                    :<ButtonDetail onClick={()=>addToPokedex(pokemonDetail)}>Capturar</ButtonDetail>} 
+                    
                 </HeaderContainer>
             }
         </>

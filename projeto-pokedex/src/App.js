@@ -1,20 +1,21 @@
 import React from "react";
 import { GlobalStyles } from "./GlobalStyles";
 import { Router } from "./Router/Router";
-import { GlobalContext } from "./Global/GlobalContext"
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { BASE_URL } from "./constants/url";
 import { GlobalState } from "./Global/GlobalState";
+import Modal from "./Components/Modal/Modal";
+import { GlobalContext } from "./Global/GlobalContext";
 
 function App(){
- 
+
+  const context = GlobalState()
+
   return(
     <div>
       <GlobalStyles/>
-      <GlobalState>
+      <GlobalContext.Provider value={context}>
       <Router/>
-      </GlobalState>
+      {context.showModal ? <Modal action={context.action}/>:''}
+      </GlobalContext.Provider>
     </div>
   )
 }

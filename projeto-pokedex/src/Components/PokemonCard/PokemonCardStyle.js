@@ -89,7 +89,7 @@ export const PokeName=styled.div`
     color:#FFFFFF;
 `
 
-export const Type1=styled.p`
+export const Type1=styled.div`
     border:1px solid black;
     width: 99px;
     height: 31px;
@@ -99,9 +99,13 @@ export const Type1=styled.p`
     justify-content:center;
     background-color:${(props =>props.color)};
     border: 1px dashed rgba(255, 255, 255, 0.47);
+    display:flex;
+    flex-direction:row;
+    gap:0.5rem;
+    color:#FFFFFF;
 `
 
-export const Type2=styled.p`
+export const Type2=styled.div`
     border:1px solid black;
     width: 99px;
     height: 31px;
@@ -111,6 +115,10 @@ export const Type2=styled.p`
     justify-content:center;
     background-color:${(props =>props.color)};
     border: 1px dashed rgba(255, 255, 255, 0.47);
+    display:flex;
+    flex-direction:row;
+    gap:0.5rem;
+    color:#FFFFFF;
 `
 
 export const LinkDetail = styled(Link)`

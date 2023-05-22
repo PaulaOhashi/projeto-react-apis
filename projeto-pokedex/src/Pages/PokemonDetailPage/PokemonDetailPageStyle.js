@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import img from "../../assets/backDetails.png"
 
 export const ContainerDetail = styled.div`
     background-color: #DDDDDD;
@@ -24,8 +25,13 @@ export const Card = styled.div`
     display:flex;
     flex-direction:row;
     gap:3rem;
-    padding-left:2rem;
+    justify-content:center;
     align-items:center;
+    position:relative;
+    background-image:url(${img});
+    background-repeat:no-repeat;
+    background-position:right;
+    background-size:690px;
 `
 
 export const FrontImage = styled.img`
@@ -47,13 +53,16 @@ export const BackImage = styled.img`
 export const Images = styled.div`
     display:flex;
     flex-direction:column;
-    gap:4rem;
+    gap:2rem;
+    position:absolute;
+    right:1063px;
 `
 
 export const ContainerCard = styled.div`
     display:flex;
     justify-content:center;
     padding-top:3.8rem;
+   
 `
 
 export const BaseStats = styled.div`
@@ -65,6 +74,8 @@ export const BaseStats = styled.div`
     flex-direction:column;
     gap:1rem;
     padding:1rem;
+    right:590px;
+    position:absolute;
 `
 
 export const TitleBaseStats = styled.h1`
@@ -101,14 +112,17 @@ export const StatsName = styled.div`
 
 export const StatsNumber=styled.div``
 
+export const Total = styled.div`
+ 
+`
+
+
 export const Name = styled.h1`
     font-weight: 700;
     font-size: 48px;
     line-height: 58px;
     color: #FFFFFF;
 `
-
-
 
 export const Id = styled.div`
     font-weight: 700;
@@ -126,6 +140,10 @@ export const BoxType1 = styled.div`
     justify-content:center;
     background-color:${(props =>props.color)};
     border: 1px dashed rgba(255, 255, 255, 0.47);
+    display:flex;
+    flex-direction:row;
+    gap:0.5rem;
+    color:white;
 `
 
 export const BoxType2 = styled.div`
@@ -137,10 +155,16 @@ export const BoxType2 = styled.div`
     justify-content:center;
     background-color:${(props =>props.color)};
     border: 1px dashed rgba(255, 255, 255, 0.47);
+    display:flex;
+    flex-direction:row;
+    gap:0.5rem;
+    color:white;
 `
 export const Infos = styled.div`
     display:flex;
     flex-direction:row;
+   
+    
 `
 export const BoxTypes = styled.div`
     display:flex;
@@ -156,13 +180,24 @@ export const TitleMoves = styled.h1`
 
 `
 
-export const LeftSide = styled.div``
+export const LeftSide = styled.div`
+    position:absolute;
+    right: 326px;
+    bottom: 30px;
+   
+`
 
-export const RightSide = styled.div``
+export const RightSide = styled.div`
+ 
+`
 
 export const Image = styled.img`
     width: 270px;
     height: 270px;
+    position:absolute;
+    right: 35px;
+    bottom: 525px;
+
 `
 
 export const Moves = styled.div`

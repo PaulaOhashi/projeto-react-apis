@@ -39,18 +39,18 @@ export const Button = styled.button`
 `
 
 export const ButtonDetail  = styled.button`
-width: 100%;
-height: 65%;
-background: #FF6262;
-border-radius: 8px;
-grid-column-start: 5;
-grid-column-end: 6;
-font-style: normal;
-font-weight: 700;
-font-size: 24px;
-line-height: 36px;
-color:#FFFFFF;
-cursor: pointer;
+    width: 100%;
+    height: 65%;
+    background: #FF6262;
+    border-radius: 8px;
+    grid-column-start: 5;
+    grid-column-end: 6;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    color:#FFFFFF;
+    cursor: pointer;
     &:hover{
         -moz-transform: scale(1.1);
 	    -webkit-transform: scale(1.1);
