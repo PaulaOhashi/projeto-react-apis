@@ -1,3 +1,21 @@
+import poison from "../assets/poison.png"
+import grass from "../assets/grass.png"
+import fire from "../assets/fire.png"
+import bug from "../assets/bug.png"
+import dark from "../assets/dark.png"
+import dragon from "../assets/dragon.png"
+import electric from "../assets/electric.png"
+import fairy from "../assets/fairy.png"
+import flying from "../assets/flying.png"
+import normal from "../assets/normal.png"
+import water from "../assets/water.png"
+import ghost from "../assets/ghost.png"
+import ground from "../assets/ground.png"
+import psychic from "../assets/psychic.png"
+import rock from "../assets/rock.png"
+import steel from "../assets/steel.png"
+
+
 export const getColors = (type) => {
     switch(type) {
       case "bug":
@@ -19,7 +37,7 @@ export const getColors = (type) => {
       case "ghost":
         return "#5269AC";
       case "grass":
-        return "#70B873";
+        return "#729F92";
       case "ground":
         return "#D97745";
       case "ice":
@@ -44,22 +62,47 @@ export const getColors = (type) => {
   export const getType = (type) =>{
     switch(type){
       case "grass":
-        return "#62B957";
+        return {
+          color:"#70B873",
+          img:grass
+        };
       case "fire":
-        return "#FD7D24";
+        return {
+          color:"#F44900",
+          img:fire
+        };
       case "water":
-        return "#4A90DA";
+        return {
+          color:"#33A4F5",
+          img:water
+        };
       case "poison":
-        return "#A552CC";
+        return {
+          color:"#AD61AE",
+          img:poison
+        };
       case "normal":
-        return "#9DA0AA";
+        return {
+          color:"#8A8A8A",
+          img:normal
+        };
       case "bug":
-        return "#8CB330";
+        return {
+          color:"#316520",
+          img:bug
+        };
       case "flying":
-        return "#748FC9";
+        return {
+          color:"#6892B0",
+          img:flying
+        };
       case "eletric":
-        return "#F2CB55";
+        return {
+          color:"#F2CB55",
+          img:electric
+        };
       default:
         return "#F78551";
     }
   };
+

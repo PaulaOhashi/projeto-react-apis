@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ContainerCard,Image,LeftSide,RightSide,Button,PokeId,PokeName,PokeType,LinkDetail,Type1,Type2 } from "./PokemonCardStyle";
 import axios from "axios";
-import { getColors,getType } from "../../utils/theme";
+import { getColors,getImageType,getType } from "../../utils/theme";
 import { useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { GlobalContext } from "../../Global/GlobalContext";
@@ -33,16 +33,22 @@ export const PokemonCard = (props) => {
     const cardColor = getColors(id1)
     const cardColorType1 = getType(id1)
     const cardColorType2 = getType(id2)   
- 
-    return(
+   
+return(
         <ContainerCard color={cardColor}>
          <LeftSide>
         <PokeId>#{pokemonDetail.id}</PokeId>
         <PokeName>{pokemonDetail.name}</PokeName>
         <PokeType>
-        <Type1 color={cardColorType1}>{id1}</Type1>
+        <Type1 color={cardColorType1.color}>
+            <img src={cardColorType1.img}/> 
+            <div>{id1}</div>    
+        </Type1>
         {id2?
-        <Type2 color={cardColorType2}>{id2}</Type2>:false
+        <Type2 color={cardColorType2.color}>
+           <img src={cardColorType2.img}/> 
+           <div>{id2}</div>
+        </Type2>:false
         }       
         </PokeType> 
         <LinkDetail to={`/details/${pokemonDetail.id}`}>Detalhes</LinkDetail>

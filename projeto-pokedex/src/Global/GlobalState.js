@@ -3,16 +3,27 @@ import axios from "axios"
 import { useState,useEffect } from "react"
 import { BASE_URL } from "../constants/url"
 
-export const GlobalState = ({children}) => {
+export const GlobalState = () => {
     const [pokemons,setPokemons] = useState([])
     const [pokedex,setPokedex] = useState([])
+    const [loading,setLoading] = useState(false)
+    const [showModal, setShowModal] = useState(false)
+    const [action, setAction] = useState("")
   
     const getPokemons = () => {
+      setLoading(true)
       axios
       .get(`${BASE_URL}/?limit=20`)
-      .then((res)=>setPokemons(res.data.results))
-      .catch((error) => console.log(error))
-    }
+      .then((res)=> {
+        setLoading(false)
+        setPokemons(res.data.results)
+      })
+      .catch((error) => {
+        setLoading(false)
+        console.log(error)
+      })
+    } 
+
 
     useEffect(()=> {
       getPokemons()
@@ -25,6 +36,8 @@ export const GlobalState = ({children}) => {
     )
    
     const addToPokedex = (pokemonToAdd) => {
+      setShowModal(true)
+      setAction("add")
       const isAlreadyOnPokedex = pokedex.find((element)=>element.id === pokemonToAdd.id)
   
       if(!isAlreadyOnPokedex){
@@ -34,22 +47,23 @@ export const GlobalState = ({children}) => {
     } 
 
     const removeFromPokedex = (pokemonToRemove) =>{
+      setShowModal(true)
+      setAction("remove")
       const newPokedex = pokedex.filter(
         (element) => element.id != pokemonToRemove)
       setPokedex(newPokedex)
     }
   
-    const dados={
+return{
       pokemons,
       pokedex,
       addToPokedex,
       removeFromPokedex,
-      filterPokemonList
+      filterPokemonList,
+      loading,
+      showModal,
+      setShowModal,
+      action,
+      setAction
     }
-
-    return(
-    <GlobalContext.Provider value={dados}>
-        {children}
-    </GlobalContext.Provider>
-    )
 }
